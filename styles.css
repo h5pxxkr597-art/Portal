@@ -5,15 +5,15 @@
 }
 
 :root {
-    --primary-color: #e74c3c;
-    --primary-dark: #c0392b;
-    --secondary-color: #3498db;
-    --accent-color: #f39c12;
+    --primary-color: #0077B6;
+    --primary-dark: #005F8C;
+    --secondary-color: #00A8CC;
+    --accent-color: #0077B6;
     --success-color: #27ae60;
     --warning-color: #f39c12;
     --danger-color: #e74c3c;
     --text-primary: #2c3e50;
-    --text-secondary: #7f8c8d;
+    --text-secondary: #5a6c7d;
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
     --bg-tertiary: #ecf0f1;
@@ -63,8 +63,8 @@ body {
 .logo-placeholder {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    border-radius: 12px;
+    background: #0077B6;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,7 +81,7 @@ body {
 .site-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--primary-color);
     margin-bottom: 0.25rem;
 }
 
@@ -99,9 +99,12 @@ body {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
+    font-size: 0.9rem;
     padding: 0.5rem 0;
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .nav-link:hover,
@@ -126,7 +129,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 50%, #3498db 100%);
+    background: linear-gradient(135deg, #0077B6 0%, #005F8C 50%, #00A8CC 100%);
     color: white;
     padding: 5rem 0;
 }

@@ -1,0 +1,139 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║          TIMOTHY SYNDROME RESEARCH PORTAL - QUICK GUIDE          ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+✅ PORTAL STATUS: 100% FUNCTIONAL & READY TO DEPLOY
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 WHAT YOU NEED TO DO (30 minutes total):
+
+  1. Read START_HERE.md or SETUP_INSTRUCTIONS.md
+  2. Visit https://timothysyndrome.org 
+  3. Gather contact info (email, phone, address, Tax ID)
+  4. Edit charity-config.js with real information
+  5. Optional: Add logo image
+  6. Test by opening index.html
+  7. Deploy to web host or GitHub Pages
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 MOST IMPORTANT FILE:
+
+  ⭐ charity-config.js ⭐
+  
+  This file contains ALL charity information:
+  - Contact emails
+  - Phone numbers  
+  - Mailing address
+  - Donation page URL
+  - Social media links
+  - Tax ID/EIN
+  - Program descriptions
+
+  UPDATE THIS FILE and the entire portal is ready!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 KEY FILES:
+
+  START_HERE.md ........... Overview & quick start
+  SETUP_INSTRUCTIONS.md ... Detailed setup guide
+  charity-config.js ....... ⭐ UPDATE THIS ⭐
+  README.md ............... Complete documentation
+  index.html .............. Main portal page (ready!)
+  styles.css .............. Styling (ready!)
+  script-new.js ........... Functionality (ready!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 TO VIEW PORTAL NOW:
+
+  Terminal command:
+  $ python3 -m http.server 8000
+  
+  Then open browser to:
+  http://localhost:8000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ WHAT'S ALREADY WORKING:
+
+  ✓ Search functionality
+  ✓ Export to CSV
+  ✓ Variant detail modals
+  ✓ Data browser tabs
+  ✓ All buttons functional
+  ✓ Navigation
+  ✓ Donation sections
+  ✓ Family resources
+  ✓ Clinical trials info
+  ✓ Responsive mobile design
+  ✓ Professional branding
+  ✓ PubMed references
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📧 INFORMATION TO GATHER:
+
+  From https://timothysyndrome.org get:
+  
+  □ Main contact email
+  □ Research coordinator email
+  □ Phone number(s)
+  □ Mailing address (street, city, state, zip)
+  □ Actual donation page URL
+  □ Tax ID / EIN (for tax-deductible donations)
+  □ Facebook page URL
+  □ Twitter/Instagram handles
+  □ LinkedIn page
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 DEPLOYMENT OPTIONS:
+
+  Option 1: GitHub Pages (Free)
+    • Push to GitHub
+    • Enable Pages in Settings
+    • Live in 5 minutes
+  
+  Option 2: Web Hosting
+    • Upload all files via FTP
+    • Works with any host
+    • Use custom domain
+  
+  Option 3: Netlify (Free)
+    • Drag & drop folder
+    • Instant deployment
+    • Free SSL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 IMPORTANT NOTES:
+
+  • Portal is FULLY FUNCTIONAL - not a template!
+  • All features tested and working ✅
+  • Only needs real contact information
+  • Mobile-friendly out of the box
+  • Professional research database design
+  • Built specifically for charity fundraising
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 SIMPLEST PATH TO LIVE PORTAL:
+
+  1. Open charity-config.js
+  2. Replace placeholder emails/phones with real ones
+  3. Upload to GitHub
+  4. Enable GitHub Pages
+  5. DONE! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Need more details? Read START_HERE.md
+
+Ready to begin? Open SETUP_INSTRUCTIONS.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
