@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timothy Syndrome Research Portal - Genomic Database</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-placeholder">
+                        <span class="logo-text">TS</span>
+                    </div>
+                    <div>
+                        <h1 class="site-title">Timothy Syndrome Alliance</h1>
+                        <p class="site-subtitle">Research Data Portal</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#research" class="nav-link">Research</a>
+                    <a href="#data" class="nav-link">Data Browser</a>
+                    <a href="#resources" class="nav-link">Resources</a>
+                    <a href="#participate" class="nav-link">Get Involved</a>
+                    <a href="#donate" class="nav-link donate-btn">Donate</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Advancing Research for Timothy Syndrome</h2>
+                <p class="hero-description">
+                    Join us in the fight against Timothy Syndrome. Access our comprehensive research database,
+                    contribute to groundbreaking studies, and help us find better treatments for children and families affected by this rare condition.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="document.getElementById('research').scrollIntoView({behavior: 'smooth'})">Explore Research</button>
+                    <button class="btn-secondary" onclick="document.getElementById('participate').scrollIntoView({behavior: 'smooth'})">Participate in Research</button>
+                    <button class="btn-donate" onclick="window.open('https://timothysyndrome.org', '_blank')">Support Our Mission</button>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">147</div>
+                        <div class="stat-label">CACNA1C Variants</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">238</div>
+                        <div class="stat-label">Registered Patients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">56</div>
+                        <div class="stat-label">Research Studies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">124</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="search-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Research Database</h2>
+                    <p class="section-description">Search our comprehensive database of CACNA1C and CACNA1D genetic variants associated with Timothy Syndrome. This data supports ongoing research and clinical understanding.</p>
+                </div>
+                <div class="search-box">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="searchInput" class="search-input" 
+                               placeholder="Search by gene, variant, phenotype, or patient ID...">
+                        <button class="search-btn" onclick="performSearch()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                            </svg>
+                            Search
+                        </button>
+                    </div>
+                    <div class="search-filters">
+                        <label class="filter-label">
+                            <input type="checkbox" checked> CACNA1C Gene
+                        </label>
+                        <label class="filter-label">
+                            <input type="checkbox" checked> CACNA1D Gene
+                        </label>
+                        <label class="filter-label">
+                            <input type="checkbox"> Pathogenic Only
+                        </label>
+                        <label class="filter-label">
+                            <input type="checkbox"> Cardiac Phenotype
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="searchResults" class="search-results">
+                    <!-- Results will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Browser Section -->
+        <section id="data" class="data-section">
+            <div class="container">
+                <h2 class="section-title">Data Browser</h2>
+                <div class="data-browser">
+                    <div class="browser-tabs">
+                        <button class="tab-btn active" onclick="switchTab('variants')">Variants</button>
+                        <button class="tab-btn" onclick="switchTab('genes')">Genes</button>
+                        <button class="tab-btn" onclick="switchTab('phenotypes')">Phenotypes</button>
+                        <button class="tab-btn" onclick="switchTab('studies')">Studies</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table" id="variantsTable">
+                            <thead>
+                                <tr>
+                                    <th>Variant ID</th>
+                                    <th>Gene</th>
+                                    <th>Position</th>
+                                    <th>Type</th>
+                                    <th>Clinical Significance</th>
+                                    <th>Frequency</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td>CACNA1C-G406R</td>
+                                    <td><span class="gene-tag">CACNA1C</span></td>
+                                    <td>chr12:2162859</td>
+                                    <td>Missense</td>
+                                    <td><span class="badge badge-pathogenic">Pathogenic</span></td>
+                                    <td>&lt;0.0001</td>
+                                    <td><button class="btn-small">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>CACNA1C-G402S</td>
+                                    <td><span class="gene-tag">CACNA1C</span></td>
+                                    <td>chr12:2162847</td>
+                                    <td>Missense</td>
+                                    <td><span class="badge badge-pathogenic">Pathogenic</span></td>
+                                    <td>&lt;0.0001</td>
+                                    <td><button class="btn-small">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>CACNA1C-G406T</td>
+                                    <td><span class="gene-tag">CACNA1C</span></td>
+                                    <td>chr12:2162858</td>
+                                    <td>Missense</td>
+                                    <td><span class="badge badge-pathogenic">Pathogenic</span></td>
+                                    <td>&lt;0.0001</td>
+                                    <td><button class="btn-small">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>CACNA1D-G403D</td>
+                                    <td><span class="gene-tag gene-tag-alt">CACNA1D</span></td>
+                                    <td>chr3:53718815</td>
+                                    <td>Missense</td>
+                                    <td><span class="badge badge-pathogenic">Pathogenic</span></td>
+                                    <td>&lt;0.0001</td>
+                                    <td><button class="btn-small">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>CACNA1C-I1166T</td>
+                                    <td><span class="gene-tag">CACNA1C</span></td>
+                                    <td>chr12:2645394</td>
+                                    <td>Missense</td>
+                                    <td><span class="badge badge-likely-pathogenic">Likely Pathogenic</span></td>
+                                    <td>&lt;0.0001</td>
+                                    <td><button class="btn-small">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="pagination-btn">← Previous</button>
+                        <span class="pagination-info">Page 1 of 8</span>
+                        <button class="pagination-btn">Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="resources-section">
+            <div class="container">
+                <h2 class="section-title">Resources for Families & Clinicians</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Family Support</h3>
+                        <p>Connect with other families, access support groups, and find resources for daily care and management.</p>
+                        <a href="https://timothysyndrome.org" target="_blank" class="resource-link">Learn More →</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🏥</div>
+                        <h3>Clinical Guidelines</h3>
+                        <p>Evidence-based treatment protocols, cardiac care guidelines, and management recommendations for healthcare providers.</p>
+                        <a href="#" class="resource-link">View Guidelines →</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🧬</div>
+                        <h3>Genetic Testing</h3>
+                        <p>Information about genetic testing, counseling services, and understanding CACNA1C/CACNA1D mutations.</p>
+                        <a href="#" class="resource-link">Testing Info →</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">📚</div>
+                        <h3>Educational Materials</h3>
+                        <p>Videos, brochures, and educational content about Timothy Syndrome for families and medical professionals.</p>
+                        <a href="#" class="resource-link">Access Materials →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Participation Section -->
+        <section id="participate" class="participate-section">
+            <div class="container">
+                <h2 class="section-title">Get Involved in Research</h2>
+                <div class="participate-content">
+                    <div class="participate-main">
+                        <h3>Active Clinical Trials & Studies</h3>
+                        <div class="trial-card">
+                            <div class="trial-header">
+                                <h4>Timothy Syndrome Natural History Study</h4>
+                                <span class="trial-status active">Recruiting</span>
+                            </div>
+                            <p><strong>Purpose:</strong> Long-term study tracking symptoms, treatments, and outcomes in Timothy Syndrome patients.</p>
+                            <p><strong>Eligibility:</strong> Confirmed CACNA1C or CACNA1D mutation</p>
+                            <p><strong>Location:</strong> Multi-site (Remote participation available)</p>
+                            <button class="btn-small">Learn More</button>
+                        </div>
+                        <div class="trial-card">
+                            <div class="trial-header">
+                                <h4>Cardiac Treatment Response Study</h4>
+                                <span class="trial-status active">Recruiting</span>
+                            </div>
+                            <p><strong>Purpose:</strong> Evaluating effectiveness of various medications for cardiac symptoms in Timothy Syndrome.</p>
+                            <p><strong>Eligibility:</strong> Ages 0-21, diagnosed with Timothy Syndrome</p>
+                            <p><strong>Location:</strong> USA - Multiple sites</p>
+                            <button class="btn-small">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="participate-sidebar">
+                        <div class="info-box">
+                            <h4>Why Participate?</h4>
+                            <ul>
+                                <li>Advance scientific understanding</li>
+                                <li>Access to specialized care</li>
+                                <li>Connect with experts</li>
+                                <li>Help future generations</li>
+                            </ul>
+                        </div>
+                        <div class="info-box">
+                            <h4>Data Contribution</h4>
+                            <p>Researchers and clinicians can submit anonymized patient data to help expand our understanding.</p>
+                            <button class="btn-primary">Submit Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section id="donate" class="donate-section">
+            <div class="container">
+                <div class="donate-content">
+                    <div class="donate-text">
+                        <h2>Support Timothy Syndrome Research</h2>
+                        <p>Your donation directly funds research initiatives, supports families, and helps us work toward better treatments and outcomes for children with Timothy Syndrome.</p>
+                        <ul class="impact-list">
+                            <li>✓ Fund critical research studies</li>
+                            <li>✓ Provide family support services</li>
+                            <li>✓ Expand genetic testing access</li>
+                            <li>✓ Develop new treatment protocols</li>
+                        </ul>
+                    </div>
+                    <div class="donate-form">
+                        <h3>Make a Difference Today</h3>
+                        <div class="donation-amounts">
+                            <button class="amount-btn">$25</button>
+                            <button class="amount-btn">$50</button>
+                            <button class="amount-btn">$100</button>
+                            <button class="amount-btn">$250</button>
+                            <button class="amount-btn">Other</button>
+                        </div>
+                        <button class="btn-donate-large" onclick="window.open('https://timothysyndrome.org', '_blank')">Donate Now</button>
+                        <p class="donate-note">Timothy Syndrome Alliance is a 501(c)(3) nonprofit organization. Your donation is tax-deductible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Timothy Syndrome Research Portal</h2>
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>Our Mission</h3>
+                        <p>
+                            The Timothy Syndrome Research Portal is dedicated to advancing research and treatment for Timothy Syndrome
+                            by providing researchers, clinicians, and families with comprehensive access to genetic and clinical data
+                            related to CACNA1C and CACNA1D mutations.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <h3>What is Timothy Syndrome?</h3>
+                        <p>
+                            Timothy Syndrome (TS) is an extremely rare genetic disorder caused by mutations in the CACNA1C gene (TS1) or
+                            CACNA1D gene (TS2). It affects cardiac function, causing long QT syndrome and life-threatening arrhythmias,
+                            and also impacts neurological development, immune function, and other organ systems. The syndrome is characterized
+                            by multi-organ dysfunction including autism spectrum features, syndactyly, and immune deficiency.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Database Features</h3>
+                        <ul>
+                            <li>Comprehensive variant database for CACNA1C and CACNA1D genes</li>
+                            <li>Cardiac and neurological phenotype correlations</li>
+                            <li>Clinical significance annotations</li>
+                            <li>Long QT interval measurements and outcomes</li>
+                            <li>Treatment response data</li>
+                            <li>Regular updates from ongoing research</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-section">
+                    <h3>Contact & Support</h3>
+                    <p>For questions, data submissions, or collaboration inquiries:</p>
+                    <p><strong>Email:</strong> research@timothysyndrome.org</p>
+                    <p><strong>Website:</strong> <a href="https://timothysyndrome.org" target="_blank">timothysyndrome.org</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Timothy Syndrome Research Portal</h4>
+                    <p>Supporting Timothy Syndrome research, families, and advancing treatment options</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#data">Data Browser</a></li>
+                        <li><a href="#search">Search Database</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Submit Data</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">About Timothy Syndrome</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Timothy Syndrome Alliance. All rights reserved. | Data last updated: January 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script-new.js"></script>
+</body>
+</html>

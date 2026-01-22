@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Timothy Syndrome Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .pass {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .fail {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <h1>Timothy Syndrome Portal - Functionality Tests</h1>
+    
+    <div class="test-section">
+        <h2>Automated Tests</h2>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="location.href='index.html'">Open Main Portal</button>
+        <div id="testResults"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Manual Tests</h2>
+        <ol>
+            <li><strong>Navigation Links:</strong> Click each nav link (Home, Search, Data Browser, About, Help) - should scroll smoothly to sections</li>
+            <li><strong>Search:</strong> Type "CACNA1C" or "G406R" and click Search - should display matching variants</li>
+            <li><strong>Data Browser Tabs:</strong> Click Variants, Genes, Phenotypes, Studies tabs - should switch content</li>
+            <li><strong>Table View Buttons:</strong> Click "View" buttons in data table - buttons should be clickable</li>
+            <li><strong>Pagination:</strong> Click Previous/Next buttons - should be functional</li>
+            <li><strong>Filter Checkboxes:</strong> Toggle CACNA1C/CACNA1D filters - checkboxes should work</li>
+            <li><strong>Responsive Design:</strong> Resize browser window - layout should adapt</li>
+        </ol>
+    </div>
+
+    <script>
+        function runAllTests() {
+            const results = document.getElementById('testResults');
+            results.innerHTML = '<h3>Running tests...</h3>';
+            
+            let testOutput = '';
+            let passCount = 0;
+            let failCount = 0;
+
+            // Test 1: Check if main files exist
+            fetch('index.html')
+                .then(response => {
+                    if (response.ok) {
+                        testOutput += '<div class="test-result pass">✓ index.html loads successfully</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ index.html failed to load</div>';
+                        failCount++;
+                    }
+                    return fetch('styles.css');
+                })
+                .then(response => {
+                    if (response.ok) {
+                        testOutput += '<div class="test-result pass">✓ styles.css loads successfully</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ styles.css failed to load</div>';
+                        failCount++;
+                    }
+                    return fetch('script.js');
+                })
+                .then(response => {
+                    if (response.ok) {
+                        testOutput += '<div class="test-result pass">✓ script.js loads successfully</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ script.js failed to load</div>';
+                        failCount++;
+                    }
+                    return fetch('index.html');
+                })
+                .then(response => response.text())
+                .then(html => {
+                    // Test content
+                    if (html.includes('Timothy Syndrome Research Portal')) {
+                        testOutput += '<div class="test-result pass">✓ Correct title: Timothy Syndrome Research Portal</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ Wrong title found</div>';
+                        failCount++;
+                    }
+
+                    if (html.includes('CACNA1C') && html.includes('CACNA1D')) {
+                        testOutput += '<div class="test-result pass">✓ Correct genes: CACNA1C and CACNA1D present</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ Missing CACNA1C/CACNA1D genes</div>';
+                        failCount++;
+                    }
+
+                    if (html.includes('G406R') || html.includes('G402S')) {
+                        testOutput += '<div class="test-result pass">✓ Timothy Syndrome variants present (G406R/G402S)</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ Missing Timothy Syndrome variants</div>';
+                        failCount++;
+                    }
+
+                    if (html.includes('timothysyndrome.org')) {
+                        testOutput += '<div class="test-result pass">✓ Correct website link: timothysyndrome.org</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ Wrong or missing website link</div>';
+                        failCount++;
+                    }
+
+                    if (!html.includes('TSC1') && !html.includes('TSC2') && !html.includes('Tuberous')) {
+                        testOutput += '<div class="test-result pass">✓ No TSC/Tuberous Sclerosis references (cleaned up correctly)</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ Still contains TSC/Tuberous Sclerosis references</div>';
+                        failCount++;
+                    }
+
+                    if (html.includes('Long QT') || html.includes('arrhythmia') || html.includes('cardiac')) {
+                        testOutput += '<div class="test-result pass">✓ Cardiac symptoms mentioned (Long QT/arrhythmias)</div>';
+                        passCount++;
+                    } else {
+                        testOutput += '<div class="test-result fail">✗ Missing cardiac symptom information</div>';
+                        failCount++;
+                    }
+
+                    // Display results
+                    testOutput += `<div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 6px;">
+                        <strong>Test Summary:</strong><br>
+                        ✓ Passed: ${passCount}<br>
+                        ✗ Failed: ${failCount}<br>
+                        Total: ${passCount + failCount}
+                    </div>`;
+                    
+                    results.innerHTML = testOutput;
+                })
+                .catch(error => {
+                    results.innerHTML = '<div class="test-result fail">✗ Error running tests: ' + error.message + '</div>';
+                });
+        }
+
+        // Open portal in new window for side-by-side testing
+        function openPortalWindow() {
+            window.open('index.html', '_blank', 'width=1200,height=800');
+        }
+    </script>
+</body>
+</html>
